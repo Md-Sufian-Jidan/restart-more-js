@@ -1,24 +1,24 @@
-
 const myLoader = () => {
     return new Promise((resolve, reject) => {
-        const success = true;
-        if (success) {
-            resolve(0.3)
+        const success = Math.random();
+        if (success <= 0.5) {
+            resolve(success);
         }
         else {
-            reject(0.7)
+            reject(success);
         }
-    })
-}
+    });
+};
 
 myLoader()
-    .then(data => console.log('resolved data', data))
-    .catch(err => console.log('rejected with value', err))
+     .then(data => console.log('resolved data', data))
+    .catch(err => console.log('rejected with value', err));
 
-fetch()
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
+fetch('')
+.then(res => res.json)
+.then(data => console.log(data))
+.catch(err => console.error(err));
+
 
 
 async function loadData() {
@@ -27,8 +27,7 @@ async function loadData() {
     console.log(data);
 }
 
-
-const taskLoader = async () => {
+const taskLoader = async() => {
     const res = await res.json();
     const data = await res;
     console.log(data);
